@@ -13,9 +13,9 @@ def mostrar_cardapio():
 # Interface inicial > opção 2
 def fazer_pedido():
     mostrar_cardapio()
-    cpf = input("CPF do cliente (deixe em branco se não é cadastrado): ").strip()
+    cpf = input("CPF do cliente (deixe em branco se não é registrado): ").strip()
     if cpf and cpf not in clientes:
-        print("Cliente não encontrado. Cadastro é necessário")
+        print("Cliente não encontrado. Registro é necessário")
         return
     
     pedido = {"itens": [], "cliente": cpf if cpf else None, "desconto_aplicado": 0.0}
@@ -62,7 +62,7 @@ def fazer_pedido():
 def menu_cliente():
     while True:
         print("\nMenu Cliente")
-        print("(1) Cadastrar cliente")
+        print("(1) Registrar cliente")
         print("(2) Ver compras e pontos")
         print("(3) Retornar para menu")
         
@@ -77,7 +77,7 @@ def menu_cliente():
                 print("Opção 'Nome' não pode ser vazia! Favor preencher.")
                 continue
             clientes[cpf] = {"nome": nome, "compras": {1: 0, 2: 0, 3: 0, 4: 0}}
-            print(f"Cliente {nome} cadastrado com sucesso!")
+            print(f"Cliente {nome} registrado com sucesso!")
         elif opcao == "2":
             cpf = input("Digite o CPF: ").strip()
             if cpf in clientes:
@@ -154,4 +154,5 @@ while True:
         print("Até logo!")
         break
     else:
+
         print("Opção inválida!")
